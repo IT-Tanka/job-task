@@ -1,4 +1,5 @@
-# job-task
+# ⚒️job-task
+## TASK
 Use https://fakestoreapi.com/ to make a small SPA application
 
 Basic requirements:
@@ -16,6 +17,20 @@ Preferred technology Stack for the task:
  -  Layout without frameworks, only SCSS/SASS
  -  Axios for requests to the server
  -  Pug
+ 
+ ## IMPLEMENTATION
+ 
+The application is made using the Nuxt framework.
+
+It consists of two main pages(PRODUCTS, ABOUT US) and one dynamic(by ID, with information about a specific product).
+
+The application implements filtering based on special requests to API. Data is requested using axios, Vuex state manager is used to store and work with them.
+
+The markup is done using Pug  template engine, the styles - using SCSS. 
+
+Technology Grid was used to place the cards. The application has a responsive design.
+
+ ![](scrsh_job-task.png)
 ## Build Setup
 
 ```bash
