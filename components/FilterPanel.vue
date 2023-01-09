@@ -24,6 +24,10 @@ export default {
   padding: 20px;
   gap: 30px;
   flex-wrap: wrap;
+  &__title{
+    display:block;
+    width:100%;
+  }
   &__input {
     height: 25px;
     width: 25px;
