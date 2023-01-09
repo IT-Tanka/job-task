@@ -1,5 +1,21 @@
-# unicorn-task3
+# job-task
+Use https://fakestoreapi.com/ to make a small SPA application
 
+Basic requirements:
+
+1. Make a navbar
+2. Create a product map (Title, product description (must open/close when clicked), image, price)
+3. If you click on the product card, you should go to its page
+4. Add a filter by product categories
+5. Make a 404 page
+6. You can make About us as the second page in the collection
+
+Preferred technology Stack for the task:
+ -  Framework Vue 2, Vue 3, Nuxt 2
+ -  Vuex state manager
+ -  Layout without frameworks, only SCSS/SASS
+ -  Axios for requests to the server
+ -  Pug
 ## Build Setup
 
 ```bash
