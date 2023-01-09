@@ -16,7 +16,6 @@ section
 
 <script>
 export default {
-  layout: 'empty',
   validate({ params }) {
     return (/^\d+$/.test(params.id) && params.id<=20);
   },
