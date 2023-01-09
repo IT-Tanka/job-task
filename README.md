@@ -1,4 +1,4 @@
-# ⚒️job-task
+# ⚒️job-task  https://it-tanka.github.io/job-task/
 ## TASK
 Use https://fakestoreapi.com/ to make a small SPA application
 
