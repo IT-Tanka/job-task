@@ -30,34 +30,33 @@ export default {
       this.$router.push("/" + product.id);
     },
     handleFilter(filter_input){
-      let param="";
+      let category="";
       if (filter_input.checked)
       {
         document.querySelectorAll(".filter-panel__input").forEach(el=>{
           if (el.checked && el!=filter_input) el.checked=!el.checked;
         });
-        localStorage.setItem("filter-name", JSON.stringify(filter_input.id));
-        param= "category/"+ filter_input.id;
-        this.$router.push("?category="+filter_input.id);
+        this.$store.commit("products/setfilter",filter_input.id);
+        category= "category/";
+        this.$router.push("?category="+this.$store.getters["products/filter"]);
       }
       else {
-        localStorage.removeItem("filter-name");
+        this.$store.commit("products/setfilter",'');
         this.$router.push('/');
       }
-      this.$store.dispatch("products/fetchProducts", param);
+      this.$store.dispatch("products/fetchProducts", category + this.$store.getters["products/filter"]);
     },
   },
   mounted(){
-    if (localStorage.getItem("filter-name") != null){
-      document.getElementById(`${JSON.parse(localStorage.getItem("filter-name"))}`).checked=true;
-      this.$router.push("?"+`${JSON.parse(localStorage.getItem("filter-name"))}`);
-    }
-    window.addEventListener("load", ()=>{
-      document.querySelectorAll(".filter-panel__input").forEach(el => el.checked=false);
-      localStorage.removeItem("filter-name");this.$router.push('/');
+    if (this.$store.getters["products/filter"]){
+      document.getElementById(`${this.$store.getters["products/filter"]}`).checked=true;
+      this.$router.push("?category="+`${this.$store.getters["products/filter"]}`);
       }
-    );
-  }
+      else {
+        document.querySelectorAll(".filter-panel__input").forEach(el => el.checked=false);
+        this.$router.push('/');
+      }
+    }
 };
 </script>
 

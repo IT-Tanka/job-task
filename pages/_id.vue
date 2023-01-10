@@ -27,9 +27,6 @@ export default {
     product() {
       return this.$store.getters["products/product"];
     },
-  },
-  mounted(){
-    window.addEventListener("load", () => localStorage.removeItem("filter-name"));
   }
 };
 </script>
@@ -69,9 +66,10 @@ $product-hover-link-color:lightblue;
   font-size: 25px;
   line-height: 25px;
   font-weight: bold;
-  padding: 30px;
   }
   &__link{
+  display:block;
+  margin-bottom: 20px;
   font-size:20px;
   text-transform: uppercase;
   transition: color 0.5s;

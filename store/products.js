@@ -1,6 +1,7 @@
 export const state = () => ({
   products: [],
   product:{},
+  filter:'',
 });
 
 export const mutations = {
@@ -9,6 +10,9 @@ export const mutations = {
   },
   setproduct(state, product) {
     state.product = product;
+  },
+  setfilter(state, filter) {
+    state.filter = filter;
   },
 };
 
@@ -26,4 +30,5 @@ export const actions = {
 export const getters = {
   products: (s) => s.products,
   product: (s) => s.product,
+  filter: (s) => s.filter
 };
