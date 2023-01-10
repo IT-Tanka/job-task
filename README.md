@@ -1,5 +1,36 @@
-# unicorn-task3
+# ⚒️job-task  https://it-tanka.github.io/job-task/
+## TASK
+Use https://fakestoreapi.com/ to make a small SPA application
 
+Basic requirements:
+
+1. Make a navbar
+2. Create a product map (Title, product description (must open/close when clicked), image, price)
+3. If you click on the product card, you should go to its page
+4. Add a filter by product categories
+5. Make a 404 page
+6. You can make About us as the second page in the collection
+
+Preferred technology Stack for the task:
+ -  Framework Vue 2, Vue 3, Nuxt 2
+ -  Vuex state manager
+ -  Layout without frameworks, only SCSS/SASS
+ -  Axios for requests to the server
+ -  Pug
+ 
+ ## IMPLEMENTATION
+ 
+The application is made using the Nuxt framework.
+
+It consists of two main pages(PRODUCTS, ABOUT US) and one dynamic(by ID, with information about a specific product).
+
+The application implements filtering based on special requests to API. Data is requested using axios, Vuex state manager is used to store and work with them.
+
+The markup is done using Pug  template engine, the styles - using SCSS. 
+
+Technology Grid was used to place the cards. The application has a responsive design.
+
+ ![](scrsh_job-task.png)
 ## Build Setup
 
 ```bash
