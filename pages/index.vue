@@ -34,17 +34,23 @@ export default {
       if (filterCheckbox.checked)
       {
         filterChecked= true;
+        // reset all filter's checkboxes except the selected one
         document.querySelectorAll(".filter-panel__input").forEach(el=>{
           if (el.checked && el!=filterCheckbox) el.checked=!el.checked;
         });
       }
+      // set "filter" value depending on selected/unselected filter's checkbox
       this.$store.commit("products/setFilter", filterChecked? filterCheckbox.id:'');
+      // set router depending on selected/unselected filter's checkbox
       this.$router.push(filterChecked? `?category=${this.$store.getters["products/filter"]}`:'/');
+      // set "products" value depending on selected/unselected filter's checkbox
       this.$store.dispatch("products/fetchProducts", filterChecked? `category/${this.$store.getters["products/filter"]}`:'');
     },
   },
   mounted(){
+    // set router depending on "filter" value
     this.$router.push(this.$store.getters["products/filter"]? `?category=${this.$store.getters["products/filter"]}`:'/');
+    // set filter's checkboxes state depending on "filter" value
     if (this.$store.getters["products/filter"]){
       document.getElementById(`${this.$store.getters["products/filter"]}`).checked=true;
       }
