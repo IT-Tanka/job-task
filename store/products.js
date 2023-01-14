@@ -5,13 +5,13 @@ export const state = () => ({
 });
 
 export const mutations = {
-  setproducts(state, products) {
+  setProducts(state, products) {
     state.products = products;
   },
-  setproduct(state, product) {
+  setProduct(state, product) {
     state.product = product;
   },
-  setfilter(state, filter) {
+  setFilter(state, filter) {
     state.filter = filter;
   },
 };
@@ -19,11 +19,11 @@ export const mutations = {
 export const actions = {
   async fetchProducts({ commit }, param = "") {
     const products = await this.$axios.$get( `${param}`);
-    commit("setproducts", products);
+    commit("setProducts", products);
   },
   async fetchProduct({ commit }, param = "1") {
     const product = await this.$axios.$get(`${param}`);
-    commit("setproduct", product);
+    commit("setProduct", product);
   },
 };
 

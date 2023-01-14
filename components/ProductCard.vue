@@ -1,16 +1,16 @@
 <template lang="pug">
 div.product-card
-  h2.product-card__title  {{ catalog_product.title }}
-    p(@click.prevent="openDescription($event)" class="product-card__description") {{ catalog_product.description }}
-  img(:src="catalog_product.image" alt="" class="product-card__img")
-  span.product-card__price {{ catalog_product.price }}$
+  h2.product-card__title  {{ catalogProduct.title }}
+    p(@click.prevent="openDescription($event)" class="product-card__description") {{ catalogProduct.description }}
+  img(:src="catalogProduct.image" alt="" class="product-card__img")
+  span.product-card__price {{ catalogProduct.price }}$
 </template>
 
 <script>
 export default {
   name: "ProductCard",
   props: {
-    catalog_product: {},
+    catalogProduct: {},
   },
   methods: {
     openDescription(event) {

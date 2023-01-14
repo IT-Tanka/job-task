@@ -4,7 +4,7 @@ section
   ul.product__list
     li(class="product__item" v-for="product of products" :key="product.id")
       a(class="product__link" href="#"  @click.prevent="openProduct(product)")
-        product-card(:catalog_product="product")
+        product-card(:catalogProduct="product")
 </template>
 
 <script>
@@ -29,34 +29,29 @@ export default {
     openProduct(product) {
       this.$router.push("/" + product.id);
     },
-    handleFilter(filter_input){
-      let category="";
-      if (filter_input.checked)
+    handleFilter(filterCheckbox){
+      let filterChecked=false;
+      if (filterCheckbox.checked)
       {
+        filterChecked= true;
         document.querySelectorAll(".filter-panel__input").forEach(el=>{
-          if (el.checked && el!=filter_input) el.checked=!el.checked;
+          if (el.checked && el!=filterCheckbox) el.checked=!el.checked;
         });
-        this.$store.commit("products/setfilter",filter_input.id);
-        category= "category/";
-        this.$router.push("?category="+this.$store.getters["products/filter"]);
       }
-      else {
-        this.$store.commit("products/setfilter",'');
-        this.$router.push('/');
-      }
-      this.$store.dispatch("products/fetchProducts", category + this.$store.getters["products/filter"]);
+      this.$store.commit("products/setFilter", filterChecked? filterCheckbox.id:'');
+      this.$router.push(filterChecked? `?category=${this.$store.getters["products/filter"]}`:'/');
+      this.$store.dispatch("products/fetchProducts", filterChecked? `category/${this.$store.getters["products/filter"]}`:'');
     },
   },
   mounted(){
+    this.$router.push(this.$store.getters["products/filter"]? `?category=${this.$store.getters["products/filter"]}`:'/');
     if (this.$store.getters["products/filter"]){
       document.getElementById(`${this.$store.getters["products/filter"]}`).checked=true;
-      this.$router.push("?category="+`${this.$store.getters["products/filter"]}`);
       }
       else {
         document.querySelectorAll(".filter-panel__input").forEach(el => el.checked=false);
-        this.$router.push('/');
       }
-    }
+  }
 };
 </script>
 
