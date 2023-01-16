@@ -1,9 +1,10 @@
 <template lang="pug">
 div.filter-panel
   span.filter-panel__title FilterBy:
-  div(v-for="filter in filterArr" :key="filter.filterArr" class="filter-panel__by" )
-    input(class="filter-panel__input" @change="$emit('change', $event)" type="checkbox" :id="filter")
-    label(:for="filter") {{ filter }}
+  list.filter-panel__list
+    li(v-for="filter in filterArr" :key="filter.filterArr" class="filter-panel__item" )
+      input(class="filter-panel__input" @change="$emit('change', $event)" type="checkbox" :id="filter")
+      label(:for="filter") {{ filter }}
 </template>
 
 <script>
@@ -32,10 +33,16 @@ export default {
     height: 25px;
     width: 25px;
   }
-  &__by {
+  &__list {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap;
+    gap:30px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &__item {
+    display: flex;
+    gap: 15px;
   }
 }
 </style>
