@@ -31,7 +31,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style  lang="scss">
 $product-header-color:darkblue;
 $product-hover-link-color:lightblue;
 .product {

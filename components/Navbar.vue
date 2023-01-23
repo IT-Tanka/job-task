@@ -4,10 +4,9 @@ ul.nav
     nuxt-link(exact no-prefetch active-class="active" to="/" class="nav__link") Products
   li.nav__item
     nuxt-link(active-class="active" to="/about" class="nav__link") About us
-
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .nav{
   display:flex;
   justify-content:center;

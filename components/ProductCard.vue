@@ -1,5 +1,5 @@
 <template lang="pug">
-div.product-card
+.product-card
   h2.product-card__title  {{ catalogProduct.title }}
     p(@click.prevent="openDescription($event)" class="product-card__description") {{ catalogProduct.description }}
   img(:src="catalogProduct.image" alt="" class="product-card__img")
@@ -21,7 +21,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 $bg-card-color:white;
 $border-card-color:rgba(0, 0, 0, 0.373);
 $active-link-color:darkblue;

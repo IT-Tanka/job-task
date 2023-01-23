@@ -2,7 +2,7 @@
 div
   Navbar
   main
-    div.container
+    .container
       nuxt
 </template>
 

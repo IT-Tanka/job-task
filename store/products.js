@@ -17,12 +17,12 @@ export const mutations = {
 };
 
 export const actions = {
-  async fetchProducts({ commit }, param = "") {
-    const products = await this.$axios.$get( `${param}`);
+  async fetchProducts({getters, commit }) {
+    const products = await this.$axios.$get(getters.filter?`category/${getters.filter}`:``);
     commit("setProducts", products);
   },
-  async fetchProduct({ commit }, param = "1") {
-    const product = await this.$axios.$get(`${param}`);
+  async fetchProduct({ commit }, productId) {
+    const product = await this.$axios.$get(`${productId}`);
     commit("setProduct", product);
   },
 };

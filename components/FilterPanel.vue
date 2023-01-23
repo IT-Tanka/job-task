@@ -1,9 +1,9 @@
 <template lang="pug">
-div.filter-panel
+.filter-panel
   span.filter-panel__title FilterBy:
-  list.filter-panel__list
+  ul.filter-panel__list
     li(v-for="filter in filterArr" :key="filter.filterArr" class="filter-panel__item" )
-      input(class="filter-panel__input" @change="$emit('change', $event)" type="checkbox" :id="filter")
+      input(ref="checkbox" :checked="storeFilter? filter == storeFilter: false" class="filter-panel__input" @change="resetCheckboxes($event.target);$emit('change', $event)" type="checkbox" :id="filter")
       label(:for="filter") {{ filter }}
 </template>
 
@@ -14,10 +14,23 @@ export default {
     filterArr: {},
   },
   emits: ["change"],
+  methods:{
+    resetCheckboxes(chosenCheckbox){
+      // reset all filter's checkboxes except the selected one
+      this.$refs.checkbox.forEach(el=>{
+          if (el.checked && el!=chosenCheckbox) el.checked=!el.checked;
+      });
+    }
+  },
+  computed:{
+    storeFilter(){
+      return this.$store.getters["products/filter"]
+    }
+  },
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .filter-panel {
   margin-bottom: 30px;
   font-size: 20px;

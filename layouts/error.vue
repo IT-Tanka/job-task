@@ -4,16 +4,16 @@ section
   nuxt-link(to="/") Products
 </template>
 
-<style scoped>
+<style scoped lang="scss">
   section {
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     margin: 0 auto;
     padding-top: 5rem;
-  }
-
-  h1 {
-    color: red;
-    font-size: 25px;
+    h1 {
+      color: red;
+      font-size: 25px;
+    }
   }
 </style>
 
